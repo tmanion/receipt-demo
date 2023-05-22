@@ -12,7 +12,6 @@ import org.junit.Test;
 
 import com.example.demo.model.Item;
 import com.example.demo.model.Receipt;
-import com.example.demo.model.ReceiptObj;
 import com.example.demo.model.rule.RoundDollarAmountRule;
 
 public class RoundDollarAmountRuleTest {
