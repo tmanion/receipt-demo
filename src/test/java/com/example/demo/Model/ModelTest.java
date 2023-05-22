@@ -11,6 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.example.demo.model.Item;
+import com.example.demo.model.Item;
+import com.example.demo.model.ReceiptObj;
 import com.example.demo.model.Receipt;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -36,9 +38,9 @@ public class ModelTest {
         }
 
         assertNotNull(testItem);
-        assertEquals("Pepsi - 12-oz", testItem.getShortDescription());
-        assertEquals(1.25, testItem.getPrice(), 0);
-
+        assertEquals("Pepsi - 12-oz", testItem.shortDescription());
+        assertEquals(1.25, testItem.price(), 0);
+        assertNotNull(testItem.id());
     }
 
     @Test
@@ -54,17 +56,17 @@ public class ModelTest {
         }
     
         assertNotNull(testReceipt);
-        assertEquals("Target", testReceipt.getRetailer());
-        assertEquals(LocalDate.parse("2022-01-02"), testReceipt.getPurchaseDate());
-        assertEquals(LocalTime.parse("13:13"), testReceipt.getPurchaseTime());
-        assertEquals(1.25, testReceipt.getTotal(), 0);
+        assertEquals("Target", testReceipt.retailer());
+        assertEquals(LocalDate.parse("2022-01-02"), testReceipt.purchaseDate());
+        assertEquals(LocalTime.parse("13:13"), testReceipt.purchaseTime());
+        assertEquals(1.25, testReceipt.total(), 0);
 
-        assertNotNull(testReceipt.getItems());
-        assertEquals(1, testReceipt.getItems().size());
+        assertNotNull(testReceipt.items());
+        assertEquals(1, testReceipt.items().size());
         
-        Item testItem = testReceipt.getItems().get(0);
+        Item testItem = testReceipt.items().get(0);
         assertNotNull(testItem);
-        assertEquals("Pepsi - 12-oz", testItem.getShortDescription());
-        assertEquals(1.25, testItem.getPrice(), 0);
+        assertEquals("Pepsi - 12-oz", testItem.shortDescription());
+        assertEquals(1.25, testItem.price(), 0);
     }
 }

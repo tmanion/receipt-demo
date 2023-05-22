@@ -1,33 +1,14 @@
 package com.example.demo.model;
 
+import java.util.UUID;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
 
-public class Item {
+public record Item(@JsonProperty("shortDescription") String shortDescription,
+@JsonProperty("price") float price, String id) {
 
-    @JsonProperty("shortDescription")
-    private String shortDescription;
-
-    @JsonProperty("price")
-    private float price;
-
-    @JsonValue
-    public String getShortDescription() {
-        return shortDescription;
+    public Item {
+        id = UUID.randomUUID().toString();
     }
-
-    public void setShortDescription(String shortDescription) {
-        this.shortDescription = shortDescription;
-    }
-
-    @JsonValue
-    public float getPrice() {
-        return price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
-    }
-
     
 }

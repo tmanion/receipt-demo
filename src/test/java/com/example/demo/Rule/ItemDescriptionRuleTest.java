@@ -2,6 +2,11 @@ package com.example.demo.Rule;
 
 import static org.junit.Assert.assertEquals;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,14 +24,10 @@ public class ItemDescriptionRuleTest {
 
     @Test
     public void simpleSuccess() {
-        Item testItem = new Item();
-        testItem.setShortDescription("Emils Cheese Pizza");
-        testItem.setPrice(12.25f);
-
-        Receipt testReceipt = new Receipt();
-        testReceipt.addItem(testItem);
-
-
+        Item item = new Item("Emils Cheese Pizza", (float) 12.25, null);
+        List<Item> items = new ArrayList<>();
+        items.add(item);
+        Receipt testReceipt = new Receipt("Target", LocalDate.parse("2023-05-22"), LocalTime.parse("09:33:00"), 12.25, items, null);
         int result = rule.processRule(testReceipt);
 
         assertEquals(3, result);
@@ -34,14 +35,10 @@ public class ItemDescriptionRuleTest {
 
     @Test
     public void leadingAndTrailingSpacesTest() {
-        Item testItem = new Item();
-        testItem.setShortDescription("   Klarbrunn 12-PK 12 FL OZ  ");
-        testItem.setPrice(12.00f);
-
-        Receipt testReceipt = new Receipt();
-        testReceipt.addItem(testItem);
-
-
+        Item item = new Item("   Klarbrunn 12-PK 12 FL OZ  ", (float) 12.00, null);
+        List<Item> items = new ArrayList<>();
+        items.add(item);
+        Receipt testReceipt = new Receipt("Target", LocalDate.parse("2023-05-22"), LocalTime.parse("09:33:00"), 12.25, items, null);
         int result = rule.processRule(testReceipt);
 
         assertEquals(3, result);

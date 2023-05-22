@@ -18,9 +18,6 @@ public class RuleService {
     public int runRules(Receipt receipt) {
         int totalPoints = 0;
 
-        for(Rule rule : rules) {
-            totalPoints += rule.processRule(receipt);
-        }
         return totalPoints;
     }
 

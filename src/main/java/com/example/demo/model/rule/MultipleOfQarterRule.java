@@ -9,7 +9,7 @@ public class MultipleOfQarterRule implements Rule {
 
     @Override
     public int processRule(Receipt receipt) {
-        return receipt.getTotal() % 0.25 == 0 ? 25 : 0;
+        return receipt.total() % 0.25 == 0 ? 25 : 0;
     }
     
 }
