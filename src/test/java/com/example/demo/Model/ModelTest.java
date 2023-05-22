@@ -36,9 +36,9 @@ public class ModelTest {
         }
 
         assertNotNull(testItem);
-        assertEquals("Pepsi - 12-oz", testItem.shortDescription());
-        assertEquals(1.25, testItem.price(), 0);
-        assertNotNull(testItem.id());
+        assertEquals("Pepsi - 12-oz", testItem.getShortDescription());
+        assertEquals(1.25, testItem.getPrice(), 0);
+
     }
 
     @Test
@@ -52,19 +52,19 @@ public class ModelTest {
             System.out.println(e.getLocalizedMessage());
             Assert.fail();
         }
-    
-        assertNotNull(testReceipt);
-        assertEquals("Target", testReceipt.retailer());
-        assertEquals(LocalDate.parse("2022-01-02"), testReceipt.purchaseDate());
-        assertEquals(LocalTime.parse("13:13"), testReceipt.purchaseTime());
-        assertEquals(1.25, testReceipt.total(), 0);
 
-        assertNotNull(testReceipt.items());
-        assertEquals(1, testReceipt.items().size());
-        
-        Item testItem = testReceipt.items().get(0);
+        assertNotNull(testReceipt);
+        assertEquals("Target", testReceipt.getRetailer());
+        assertEquals(LocalDate.parse("2022-01-02"), testReceipt.getPurchaseDate());
+        assertEquals(LocalTime.parse("13:13"), testReceipt.getPurchaseTime());
+        assertEquals(1.25, testReceipt.getTotal(), 0);
+
+        assertNotNull(testReceipt.getItems());
+        assertEquals(1, testReceipt.getItems().size());
+
+        Item testItem = testReceipt.getItems().get(0);
         assertNotNull(testItem);
-        assertEquals("Pepsi - 12-oz", testItem.shortDescription());
-        assertEquals(1.25, testItem.price(), 0);
+        assertEquals("Pepsi - 12-oz", testItem.getShortDescription());
+        assertEquals(1.25, testItem.getPrice(), 0);
     }
 }

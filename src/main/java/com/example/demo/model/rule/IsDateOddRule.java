@@ -9,7 +9,7 @@ public class IsDateOddRule implements Rule{
 
     @Override
     public int processRule(Receipt receipt) {
-        if (receipt.purchaseDate().getDayOfMonth() % 2 != 0) {
+        if (receipt.getPurchaseDate().getDayOfMonth() % 2 != 0) {
             return 6;
         }
 

@@ -12,11 +12,11 @@ public class ItemDescriptionRule implements Rule {
     public int processRule(Receipt receipt) {
         int points = 0;
 
-        for(Item item : receipt.items()) {
-            String itemDescription = item.shortDescription().trim();
+        for(Item item : receipt.getItems()) {
+            String itemDescription = item.getShortDescription().trim();
             
             if( itemDescription.length() % 3 == 0) {
-                points += Math.ceil(item.price() * 0.2);
+                points += Math.ceil(item.getPrice() * 0.2);
             }
         }
         

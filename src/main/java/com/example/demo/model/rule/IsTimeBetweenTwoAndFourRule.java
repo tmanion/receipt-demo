@@ -13,8 +13,8 @@ public class IsTimeBetweenTwoAndFourRule implements Rule {
 
     @Override
     public int processRule(Receipt receipt) {
-        return receipt.purchaseTime().isAfter(TWO_PM) 
-        && receipt.purchaseTime().isBefore(FOUR_PM) ? 10 : 0;
+        return receipt.getPurchaseTime().isAfter(TWO_PM) 
+        && receipt.getPurchaseTime().isBefore(FOUR_PM) ? 10 : 0;
     }
     
 }

@@ -9,7 +9,7 @@ public class EveryTwoItemsRule implements Rule {
 
     @Override
     public int processRule(Receipt receipt) {
-        int numItems = receipt.items().size();
+        int numItems = receipt.getItems().size();
 
         return (numItems / 2) * 5;
     }
