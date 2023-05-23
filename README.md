@@ -48,7 +48,7 @@ curl --location 'localhost:8080/receipts/process' \
 }'
 ```
 
-#### Creating a receipt with a value of 108 points
+#### Creating a receipt with a value of 109 points
 ```curl
 curl --location 'localhost:8080/receipts/process' \
 --header 'Content-Type: application/json' \
