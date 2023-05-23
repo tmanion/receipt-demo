@@ -12,7 +12,7 @@ public class RoundDollarAmountRule implements Rule{
     public int processRule(Receipt receipt) {
         double total = receipt.getTotal();
 
-        if(Math.ceil(total) == Math.floor(total)) {
+        if(total > 0.0 && Math.ceil(total) == Math.floor(total)) {
             return REWARD_POINTS.intValue();
         }
 

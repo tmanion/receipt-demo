@@ -26,7 +26,6 @@ public class ItemDescriptionRuleTest {
         Receipt testReceipt = new Receipt();
         testReceipt.addItem(testItem);
 
-
         int result = rule.processRule(testReceipt);
 
         assertEquals(3, result);
@@ -41,9 +40,31 @@ public class ItemDescriptionRuleTest {
         Receipt testReceipt = new Receipt();
         testReceipt.addItem(testItem);
 
-
         int result = rule.processRule(testReceipt);
 
         assertEquals(3, result);
+    }
+
+    @Test
+    public void emptyDescription() {
+        Item testItem = new Item();
+        testItem.setShortDescription("");
+        testItem.setPrice(12.00f);
+
+        Receipt testReceipt = new Receipt();
+        testReceipt.addItem(testItem);
+
+        int result = rule.processRule(testReceipt);
+
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void emptyItemsTest() {
+        Receipt testReceipt = new Receipt();
+
+        int result = rule.processRule(testReceipt);
+
+        assertEquals(0, result);
     }
 }

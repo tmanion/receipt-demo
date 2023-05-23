@@ -5,6 +5,8 @@ import org.springframework.stereotype.Component;
 import com.example.demo.model.Item;
 import com.example.demo.model.Receipt;
 
+import io.micrometer.common.util.StringUtils;
+
 @Component
 public class ItemDescriptionRule implements Rule {
 
@@ -15,7 +17,8 @@ public class ItemDescriptionRule implements Rule {
         for(Item item : receipt.getItems()) {
             String itemDescription = item.getShortDescription().trim();
             
-            if( itemDescription.length() % 3 == 0) {
+            if( StringUtils.isNotBlank(itemDescription) && 
+                itemDescription.length() % 3 == 0) {
                 points += Math.ceil(item.getPrice() * 0.2);
             }
         }

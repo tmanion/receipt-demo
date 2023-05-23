@@ -35,5 +35,15 @@ public class MultipleOfQuarterRuleTest {
 
         assertEquals(0, result);
     }
+
+    @Test
+    public void zeroTotal() {
+        Receipt testReceipt = new Receipt();
+        testReceipt.setTotal(0.0);
+
+        int result  = rule.processRule(testReceipt);
+
+        assertEquals(0, result);
+    }
     
 }

@@ -35,4 +35,14 @@ public class RoundDollarAmountRuleTest {
 
         assertEquals(0, result);
     }
+
+    @Test
+    public void zeroTest() {
+        Receipt testReceipt = new Receipt();
+        testReceipt.setTotal(0.0d);
+
+        int result = rule.processRule(testReceipt);
+
+        assertEquals(0, result);
+    }
 }

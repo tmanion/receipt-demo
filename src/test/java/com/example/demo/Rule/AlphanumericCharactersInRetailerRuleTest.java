@@ -36,4 +36,14 @@ public class AlphanumericCharactersInRetailerRuleTest {
 
         assertEquals(14, result);
     }
+
+    @Test
+    public void allNonAlphanumericTest() {
+        Receipt testReceipt = new Receipt();
+        testReceipt.setRetailer("&*@#$%)*(&^#$)");
+
+        int result = rule.processRule(testReceipt);
+
+        assertEquals(0, result);
+    }
 }
